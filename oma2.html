@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Für Oma 🕊️</title>
+
+<style>
+body {
+    margin: 0;
+        font-family: "Segoe UI", sans-serif;
+
+            /* 🔥 DEIN BILD ALS HINTERGRUND */
+                background: url("background.jpg") no-repeat center center fixed;
+                    background-size: cover;
+
+                        display: flex;
+                            justify-content: center;
+                                align-items: center;
+                                    height: 100vh;
+                                    }
+
+                                    /* dunkler Overlay für bessere Lesbarkeit */
+                                    .overlay {
+                                        position: absolute;
+                                            top: 0;
+                                                left: 0;
+                                                    width: 100%;
+                                                        height: 100%;
+                                                            background: rgba(0,0,0,0.5);
+                                                            }
+
+                                                            .card {
+                                                                position: relative;
+                                                                    background: rgba(0,0,0,0.6);
+                                                                        backdrop-filter: blur(10px);
+                                                                            border-radius: 25px;
+                                                                                padding: 25px;
+                                                                                    width: 90%;
+                                                                                        max-width: 350px;
+                                                                                            text-align: center;
+                                                                                                color: white;
+                                                                                                    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+                                                                                                    }
+
+                                                                                                    h1 {
+                                                                                                        margin-bottom: 10px;
+                                                                                                        }
+
+                                                                                                        .time {
+                                                                                                            font-size: 1.4em;
+                                                                                                                line-height: 1.6;
+                                                                                                                    margin: 20px 0;
+                                                                                                                    }
+
+                                                                                                                    .candle {
+                                                                                                                        font-size: 2em;
+                                                                                                                        }
+                                                                                                                        </style>
+                                                                                                                        </head>
+
+                                                                                                                        <body>
+
+                                                                                                                        <div class="overlay"></div>
+
+                                                                                                                        <div class="card">
+                                                                                                                            <div class="candle">🕯️</div>
+                                                                                                                                <h1>Für meine Oma</h1>
+                                                                                                                                    <p>Du bleibst für immer ❤️</p>
+
+                                                                                                                                        <div class="time" id="time"></div>
+                                                                                                                                            <div id="grave"></div>
+                                                                                                                                            </div>
+
+                                                                                                                                            <script>
+                                                                                                                                            const deathDate = new Date("2025-07-10T18:08:00");
+                                                                                                                                            const graveEnd = new Date(deathDate);
+                                                                                                                                            graveEnd.setFullYear(graveEnd.getFullYear() + 15);
+
+                                                                                                                                            function updateTime() {
+                                                                                                                                                const now = new Date();
+                                                                                                                                                    let diff = now - deathDate;
+
+                                                                                                                                                        let seconds = Math.floor(diff / 1000);
+                                                                                                                                                            let minutes = Math.floor(seconds / 60);
+                                                                                                                                                                let hours = Math.floor(minutes / 60);
+                                                                                                                                                                    let days = Math.floor(hours / 24);
+
+                                                                                                                                                                        let years = Math.floor(days / 365);
+                                                                                                                                                                            days %= 365;
+                                                                                                                                                                                hours %= 24;
+                                                                                                                                                                                    minutes %= 60;
+                                                                                                                                                                                        seconds %= 60;
+
+                                                                                                                                                                                            document.getElementById("time").innerHTML =
+                                                                                                                                                                                                    `${years} Jahre<br>${days} Tage<br>${hours} Std<br>${minutes} Min<br>${seconds} Sek`;
+
+                                                                                                                                                                                                        let graveDiff = graveEnd - now;
+
+                                                                                                                                                                                                            if (graveDiff > 0) {
+                                                                                                                                                                                                                    let gDays = Math.floor(graveDiff / (1000 * 60 * 60 * 24));
+                                                                                                                                                                                                                            document.getElementById("grave").innerHTML =
+                                                                                                                                                                                                                                        `Grab noch ca. ${gDays} Tage`;
+                                                                                                                                                                                                                                            } else {
+                                                                                                                                                                                                                                                    document.getElementById("grave").innerHTML =
+                                                                                                                                                                                                                                                                `Grabzeit vorbei`;
+                                                                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                                                                    }
+
+                                                                                                                                                                                                                                                                    setInterval(updateTime, 1000);
+                                                                                                                                                                                                                                                                    updateTime();
+                                                                                                                                                                                                                                                                    </script>
+
+                                                                                                                                                                                                                                                                    </body>
+                                                                                                                                                                                                                                                                    </html>
